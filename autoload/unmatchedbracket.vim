@@ -22,6 +22,7 @@ function unmatchedbracket#find(bracket)
 			endif
 			let l:content = join(l:lines, '\n')
 		endif
+		let l:content = split(l:content, '\zs') " for vim 7.4
 		if count(l:content, '[') == count(l:content, ']')
 			return
 		endif
