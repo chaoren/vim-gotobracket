@@ -1,11 +1,12 @@
-Given (Nested brackets):
+Given (Brackets):
   {
     [
       1
     ]
   }
+  12345
 
-Execute (FIXME: Move to 1, start visual mode, then find previous '['):
+Execute (FIXME: Move to 1, start visual mode, then go to previous '['):
   execute '/1'
   normal f1
   normal v
@@ -13,7 +14,7 @@ Execute (FIXME: Move to 1, start visual mode, then find previous '['):
   AssertEqual 2, line('.')
   AssertEqual 3, col('.')
 
-Execute (FIXME: Move to 1, start visual mode, then find next ']'):
+Execute (FIXME: Move to 1, start visual mode, then go to next ']'):
   execute '/1'
   normal f1
   normal v
