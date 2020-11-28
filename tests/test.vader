@@ -1,0 +1,49 @@
+Given (Nested brackets):
+  ([
+    { 1
+      [ 2 ]
+    }
+    3 [   ]
+  ])
+
+Execute (Move to 1, then find previous '['):
+  execute '/1'
+  normal f1
+  normal [[
+  AssertEqual 1, line('.')
+  AssertEqual 2, col('.')
+
+Execute (Move to 1, then find next ']'):
+  execute '/1'
+  normal f1
+  normal ]]
+  AssertEqual 6, line('.')
+  AssertEqual 1, col('.')
+
+Execute (Move to 2, then find previous '['):
+  execute '/2'
+  normal f2
+  normal [[
+  AssertEqual 3, line('.')
+  AssertEqual 5, col('.')
+
+Execute (Move to 2, then find next ']'):
+  execute '/2'
+  normal f2
+  normal ]]
+  AssertEqual 3, line('.')
+  AssertEqual 9, col('.')
+
+Execute (Move to 3, then find previous '['):
+  execute '/3'
+  normal f3
+  normal [[
+  AssertEqual 1, line('.')
+  AssertEqual 2, col('.')
+
+Execute (Move to 3, then find next ']'):
+  execute '/3'
+  normal f3
+  normal ]]
+  AssertEqual 6, line('.')
+  AssertEqual 1, col('.')

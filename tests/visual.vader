@@ -1,0 +1,22 @@
+Given (Nested brackets):
+  {
+    [
+      1
+    ]
+  }
+
+Execute (FIXME: Move to 1, start visual mode, then find previous '['):
+  execute '/1'
+  normal f1
+  normal v
+  normal [[
+  AssertEqual 2, line('.')
+  AssertEqual 3, col('.')
+
+Execute (FIXME: Move to 1, start visual mode, then find next ']'):
+  execute '/1'
+  normal f1
+  normal v
+  normal ]]
+  AssertEqual 4, line('.')
+  AssertEqual 3, col('.')
