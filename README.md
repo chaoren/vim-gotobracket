@@ -1,4 +1,4 @@
-# Go to previous unmatched '[' and next unmatched ']' [![Build Status][1]][2]
+# Go to unmatched '[' and ']' [![Build Status][1]][2]
 
 The same as what `[{` and `]}` does for `{` and `}`, except for `[` and `]`.
 
