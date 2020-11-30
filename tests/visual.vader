@@ -6,18 +6,20 @@ Given (Brackets):
   }
   12345
 
-Execute (FIXME: Move to 1, start visual mode, then go to previous '['):
-  execute '/1'
-  normal f1
-  normal v
-  normal [[
+Do (FIXME: Move to 1, start visual mode, then go to previous '['):
+  /1\<CR>
+  v
+  [[
+
+Then (Assert that cursor moved to '['):
   AssertEqual 2, line('.')
   AssertEqual 3, col('.')
 
-Execute (FIXME: Move to 1, start visual mode, then go to next ']'):
-  execute '/1'
-  normal f1
-  normal v
-  normal ]]
+Do (FIXME: Move to 1, start visual mode, then go to next ']'):
+  /1\<CR>
+  v
+  ]]
+
+Then (Assert that cursor moved to ']'):
   AssertEqual 4, line('.')
   AssertEqual 3, col('.')

@@ -7,45 +7,51 @@ Given (Nested brackets):
   ])
   123456789
 
-Execute (Move to 1, then go to previous '['):
-  execute '/1'
-  normal f1
-  normal [[
+Do (Move to 1, then go to previous '['):
+  /1\<CR>
+  [[
+
+Then (Assert that cursor is on the first '['):
   AssertEqual 1, line('.')
   AssertEqual 2, col('.')
 
-Execute (Move to 1, then go to next ']'):
-  execute '/1'
-  normal f1
-  normal ]]
+Do (Move to 1, then go to next ']'):
+  /1\<CR>
+  ]]
+
+Then (Assert that cursor is on the last ']'):
   AssertEqual 6, line('.')
   AssertEqual 1, col('.')
 
-Execute (Move to 2, then go to previous '['):
-  execute '/2'
-  normal f2
-  normal [[
+Do (Move to 2, then go to previous '['):
+  /2\<CR>
+  [[
+
+Then (Assert that cursor is on the second '['):
   AssertEqual 3, line('.')
   AssertEqual 5, col('.')
 
-Execute (Move to 2, then go to next ']'):
-  execute '/2'
-  normal f2
-  normal ]]
+Do (Move to 2, then go to next ']'):
+  /2\<CR>
+  ]]
+
+Then (Assert that cursor is on the first ']'):
   AssertEqual 3, line('.')
   AssertEqual 9, col('.')
 
-Execute (Move to 3, then go to previous '['):
-  execute '/3'
-  normal f3
-  normal [[
+Do (Move to 3, then go to previous '['):
+  /3\<CR>
+  [[
+
+Then (Assert that cursor is on the first '['):
   AssertEqual 1, line('.')
   AssertEqual 2, col('.')
 
-Execute (Move to 3, then go to next ']'):
-  execute '/3'
-  normal f3
-  normal ]]
+Do (Move to 3, then go to next ']'):
+  /3\<CR>
+  ]]
+
+Then (Assert that cursor is on the last ']'):
   AssertEqual 6, line('.')
   AssertEqual 1, col('.')
 
@@ -53,32 +59,44 @@ Given (Brackets on one line):
   [ [ 1 [ 2 ] ] 3 [ ] ]
   123456789012345678901
 
-Execute (Move to 1, then go to previous '['):
-  normal f1
-  normal [[
+Do (Move to 1, then go to previous '['):
+  f1
+  [[
+
+Then (Assert that cursor is on the second '['):
   AssertEqual 3, col('.')
 
-Execute (Move to 1, then go to next ']'):
-  normal f1
-  normal ]]
+Do (Move to 1, then go to next ']'):
+  f1
+  ]]
+
+Then (Assert that cursor is on the second ']'):
   AssertEqual 13, col('.')
 
-Execute (Move to 2, then go to previous '['):
-  normal f2
-  normal [[
+Do (Move to 2, then go to previous '['):
+  f2
+  [[
+
+Then (Assert that cursor is on the third '['):
   AssertEqual 7, col('.')
 
-Execute (Move to 2, then go to next ']'):
-  normal f2
-  normal ]]
+Do (Move to 2, then go to next ']'):
+  f2
+  ]]
+
+Then (Assert that cursor is on the first ]):
   AssertEqual 11, col('.')
 
-Execute (Move to 3, then go to previous '['):
-  normal f3
-  normal [[
+Do (Move to 3, then go to previous '['):
+  f3
+  [[
+
+Then (Assert that cursor is on the first '['):
   AssertEqual 1, col('.')
 
-Execute (Move to 3, then go to next ']'):
-  normal f3
-  normal ]]
+Do (Move to 3, then go to next ']'):
+  f3
+  ]]
+
+Then (Assert that cursor is on the last '['):
   AssertEqual 21, col('.')

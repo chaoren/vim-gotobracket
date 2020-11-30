@@ -6,17 +6,19 @@ Given (Nested brackets):
   ]
   12345
 
-Execute (FIXME: Move to 1, then go to second previous '['):
-  execute '/1'
-  normal f1
-  normal 2[[
+Do (FIXME: Move to 1, then go to previous '[' twice):
+  /1\<CR>
+  2[[
+
+Then (Assert that cursor is on the first '['):
   AssertEqual 1, line('.')
   AssertEqual 1, col('.')
 
-Execute (FIXME: Move to 1, then go to second next ']'):
-  execute '/1'
-  normal f1
-  normal 2]]
+Do (FIXME: Move to 1, then go to next ']' twice):
+  /1\<CR>
+  2]]
+
+Then (Assert that cursor is on the last ']'):
   AssertEqual 5, line('.')
   AssertEqual 1, col('.')
 
@@ -24,14 +26,18 @@ Given (Brackets on one line):
   [ [ [ 1 ] ] ]
   1234567890123
 
-Execute (FIXME: Move to 1, then go to third previous '['):
-  normal f1
-  normal 3[[
+Do (FIXME: Move to 1, then go to previous '[' three times):
+  f1
+  3[[
+
+Then (Assert that cursor is on the first '['):
   AssertEqual 1, line('.')
   AssertEqual 1, col('.')
 
-Execute (FIXME: Move to 1, then go to third next ']'):
-  normal f1
-  normal 3]]
+Do (FIXME: Move to 1, then go to next ']' three times):
+  f1
+  3]]
+
+Then (Assert that cursor is on the last ']'):
   AssertEqual 1, line('.')
   AssertEqual 13, col('.')
