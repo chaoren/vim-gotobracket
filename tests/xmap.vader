@@ -6,7 +6,7 @@ Given (Brackets):
   }
   12345
 
-Do (FIXME: Move to 1, start visual mode, then go to previous '['):
+Do (Move to 1, start visual mode, then go to previous '['):
   /1\<CR>
   v
   [[
@@ -15,7 +15,7 @@ Then (Assert that cursor moved to '['):
   AssertEqual 2, line('.')
   AssertEqual 3, col('.')
 
-Do (FIXME: Move to 1, start visual mode, then go to next ']'):
+Do (Move to 1, start visual mode, then go to next ']'):
   /1\<CR>
   v
   ]]
