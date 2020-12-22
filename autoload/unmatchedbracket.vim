@@ -1,15 +1,25 @@
-function unmatchedbracket#find(bracket)
-	let l:oldpos = getcurpos()
+function unmatchedbracket#find(bracket, count, mode)
+	if a:mode == 'o'
+		normal! v
+	endif
+	let l:count = a:count
 	let l:forward = a:bracket == ']'
 	let l:flags = l:forward ? 'W' : 'bW'
+	while l:count > 0 && unmatchedbracket#next(a:bracket, l:forward, l:flags)
+		let l:count -= 1
+	endwhile
+endfunction
+
+function unmatchedbracket#next(bracket, forward, flags)
+	let l:oldpos = getcurpos()
 	while v:true
-		if search(a:bracket, l:flags) == 0
+		if search(a:bracket, a:flags) == 0
 			call setpos('.', l:oldpos)
-			return
+			return v:false
 		endif
 		let l:newpos = getcurpos()
-		let l:leftpos = l:forward ? l:oldpos : l:newpos
-		let l:rightpos = l:forward ? l:newpos : l:oldpos
+		let l:leftpos = a:forward ? l:oldpos : l:newpos
+		let l:rightpos = a:forward ? l:newpos : l:oldpos
 		let l:lines = getline(l:leftpos[1], l:rightpos[1])
 		if len(l:lines) == 1
 			let l:content = l:lines[0][l:leftpos[2]:l:rightpos[2]-2]
@@ -24,7 +34,7 @@ function unmatchedbracket#find(bracket)
 		endif
 		let l:content = split(l:content, '\zs') " for vim 7.4
 		if count(l:content, '[') == count(l:content, ']')
-			return
+			return v:true
 		endif
 	endwhile
 endfunction

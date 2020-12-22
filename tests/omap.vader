@@ -1,0 +1,37 @@
+Given (Brackets):
+  {
+    [
+      1
+    ]
+  }
+  12345
+
+Do (Move to 1, then delete until next ']'):
+  /1\<CR>
+  d]]
+
+Then (Assert that cursor moved to before 1):
+  AssertEqual 3, line('.')
+  AssertEqual 4, col('.')
+
+Expect (1 through ] deleted):
+  {
+    [
+      
+  }
+  12345
+
+Do (Move to 1, then delete until previous '['):
+  /1\<CR>
+  d[[
+
+Then (Assert that cursor moved to before [):
+  AssertEqual 2, line('.')
+  AssertEqual 2, col('.')
+
+Expect ([ through 1 deleted):
+  {
+    
+    ]
+  }
+  12345

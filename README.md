@@ -16,12 +16,11 @@ E.g.,
 ```
 nmap <silent><Leader>[ <Plug>UnmatchedOpenBracket
 nmap <silent><Leader>] <Plug>UnmatchedCloseBracket
+xmap <silent><Leader>[ <Plug>UnmatchedOpenBracket
+xmap <silent><Leader>] <Plug>UnmatchedCloseBracket
+omap <silent><Leader>[ <Plug>UnmatchedOpenBracket
+omap <silent><Leader>] <Plug>UnmatchedCloseBracket
 ```
-
-## TODO
-
-- Support moving with existing text selection.
-- Support `[count]` prefix when moving.
 
 [1]: https://travis-ci.com/chaoren/vim-unmatchedbracket.svg?branch=master
 [2]: https://travis-ci.com/chaoren/vim-unmatchedbracket
