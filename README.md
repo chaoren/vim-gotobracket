@@ -6,14 +6,14 @@ The same as what `[{` and `]}` does for `{` and `}`, except for `[` and `]`.
 
 Use `g:unmatchedbracket_nomap` to disable the default `[[` and `]]` mappings.\
 E.g.,
-```
+```vim
 let g:unmatchedbracket_nomap = 1
 ```
 
 Use `<Plug>UnmatchedOpenBracket` and `<Plug>UnmatchedCloseBracket` to define
 your own mappings.\
 E.g.,
-```
+```vim
 nmap <silent><Leader>[ <Plug>UnmatchedOpenBracket
 nmap <silent><Leader>] <Plug>UnmatchedCloseBracket
 xmap <silent><Leader>[ <Plug>UnmatchedOpenBracket
