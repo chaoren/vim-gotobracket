@@ -4,23 +4,25 @@ The same as what `[{` and `]}` does for `{` and `}`, except for `[` and `]`.
 
 ## Customization
 
-Use `g:unmatchedbracket_nomap` to disable the default `[[` and `]]` mappings.\
+Use `g:gotobracket_nomap` to disable the default `[[` and `]]` mappings. \
 E.g.,
+
 ```vim
-let g:unmatchedbracket_nomap = 1
+let g:gotobracket_nomap = 1
 ```
 
-Use `<Plug>UnmatchedOpenBracket` and `<Plug>UnmatchedCloseBracket` to define
-your own mappings.\
+Use `<Plug>GotoOpenBracket` and `<Plug>GotoCloseBracket` to define your own
+mappings. \
 E.g.,
+
 ```vim
-nmap <silent><Leader>[ <Plug>UnmatchedOpenBracket
-nmap <silent><Leader>] <Plug>UnmatchedCloseBracket
-xmap <silent><Leader>[ <Plug>UnmatchedOpenBracket
-xmap <silent><Leader>] <Plug>UnmatchedCloseBracket
-omap <silent><Leader>[ <Plug>UnmatchedOpenBracket
-omap <silent><Leader>] <Plug>UnmatchedCloseBracket
+nmap <silent><Leader>[ <Plug>GotoOpenBracket
+nmap <silent><Leader>] <Plug>GotoCloseBracket
+xmap <silent><Leader>[ <Plug>GotoOpenBracket
+xmap <silent><Leader>] <Plug>GotoCloseBracket
+omap <silent><Leader>[ <Plug>GotoOpenBracket
+omap <silent><Leader>] <Plug>GotoCloseBracket
 ```
 
-[1]: https://travis-ci.com/chaoren/vim-unmatchedbracket.svg?branch=master
-[2]: https://travis-ci.com/chaoren/vim-unmatchedbracket
+[1]: https://travis-ci.com/chaoren/vim-gotobracket.svg?branch=master
+[2]: https://travis-ci.com/chaoren/vim-gotobracket
