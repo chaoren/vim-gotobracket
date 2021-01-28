@@ -1,3 +1,9 @@
+let s:cmd = v:version >= 802 ? "\<Cmd>" : ":\<C-U>"
+
+function gotobracket#cmd(expr)
+	return s:cmd.a:expr
+endfunction
+
 function gotobracket#find(bracket, count, mode)
 	if a:mode == 'o'
 		normal! v
