@@ -1,0 +1,26 @@
+Execute (Set cpoptions):
+  Save &cpoptions
+  set cpoptions+=<
+  unlet g:loaded_gotobracket
+  runtime plugin/gotobracket.vim
+
+Given (A pair of brackets):
+  [ 1 ]
+  12345
+
+Do (Move to 1, then go to previous '['):
+  f1[[
+
+Then (Assert that cursor is on the first '['):
+  AssertEqual 1, line('.')
+  AssertEqual 1, col('.')
+
+Do (Move to 1, then go to next ']'):
+  f1]]
+
+Then (Assert that cursor is on the last ']'):
+  AssertEqual 1, line('.')
+  AssertEqual 5, col('.')
+
+Execute (Restore cpoptions):
+  Restore &cpoptions
