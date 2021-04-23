@@ -3,6 +3,9 @@ if exists('g:loaded_gotobracket')
 endif
 let g:loaded_gotobracket = 1
 
+let s:cpo = &cpoptions
+set cpoptions-=<
+
 nnoremap <silent><expr><Plug>GotoOpenBracket  gotobracket#cmd('call gotobracket#find("[", v:count1, "n")<CR>')
 nnoremap <silent><expr><Plug>GotoCloseBracket gotobracket#cmd('call gotobracket#find("]", v:count1, "n")<CR>')
 xnoremap <silent><expr><Plug>GotoOpenBracket  gotobracket#cmd('call gotobracket#find("[", v:count1, "x")<CR>')
@@ -18,3 +21,6 @@ if !get(g:, 'gotobracket_nomap', 0)
 	omap [[ <Plug>GotoOpenBracket
 	omap ]] <Plug>GotoCloseBracket
 endif
+
+let &cpoptions = s:cpo
+unlet s:cpo
