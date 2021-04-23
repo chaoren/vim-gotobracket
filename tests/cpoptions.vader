@@ -1,6 +1,7 @@
 Execute (Set cpoptions):
   Save &cpoptions
   set cpoptions+=<
+  mapclear
   unlet g:loaded_gotobracket
   runtime plugin/gotobracket.vim
 
