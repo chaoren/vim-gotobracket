@@ -1,7 +1,7 @@
 let s:cmd = has('patch-8.2.1978') ? "\<Cmd>" : ":\<C-U>"
 
 function gotobracket#cmd(expr)
-	return s:cmd.a:expr
+	return s:cmd.a:expr."\<CR>"
 endfunction
 
 function gotobracket#find(bracket, count, mode)
