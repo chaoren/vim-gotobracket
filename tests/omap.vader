@@ -8,7 +8,7 @@ Given (Brackets):
 
 Do (Move to 1, then delete until next ']'):
   /1\<CR>
-  d]]
+  d]r
 
 Then (Assert that cursor moved to before 1):
   AssertEqual 3, line('.')
@@ -23,7 +23,7 @@ Expect (1 through ] deleted):
 
 Do (Move to 1, then delete until previous '['):
   /1\<CR>
-  d[[
+  d[r
 
 Then (Assert that cursor moved to before [):
   AssertEqual 2, line('.')

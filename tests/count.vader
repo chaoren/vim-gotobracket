@@ -8,7 +8,7 @@ Given (Nested brackets):
 
 Do (Move to 1, then go to previous '[' twice):
   /1\<CR>
-  2[[
+  2[r
 
 Then (Assert that cursor is on the first '['):
   AssertEqual 1, line('.')
@@ -16,7 +16,7 @@ Then (Assert that cursor is on the first '['):
 
 Do (Move to 1, then go to next ']' twice):
   /1\<CR>
-  2]]
+  2]r
 
 Then (Assert that cursor is on the last ']'):
   AssertEqual 5, line('.')
@@ -28,7 +28,7 @@ Given (Brackets on one line):
 
 Do (Move to 1, then go to previous '[' three times):
   f1
-  3[[
+  3[r
 
 Then (Assert that cursor is on the first '['):
   AssertEqual 1, line('.')
@@ -36,7 +36,7 @@ Then (Assert that cursor is on the first '['):
 
 Do (Move to 1, then go to next ']' three times):
   f1
-  3]]
+  3]r
 
 Then (Assert that cursor is on the last ']'):
   AssertEqual 1, line('.')

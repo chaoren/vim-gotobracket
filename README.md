@@ -4,7 +4,7 @@ The same as what `[{` and `]}` does for `{` and `}`, except for `[` and `]`.
 
 ## Customization
 
-Use `g:gotobracket_nomap` to disable the default `[[` and `]]` mappings. \
+Use `g:gotobracket_nomap` to disable the default `[r` and `]r` mappings. \
 E.g.,
 
 ```vim

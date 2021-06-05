@@ -3,14 +3,14 @@ Given (A pair of brackets):
   12345
 
 Do (Move to 1, then go to previous '['):
-  f1[[
+  f1[r
 
 Then (Assert that cursor is on the first '['):
   AssertEqual 1, line('.')
   AssertEqual 1, col('.')
 
 Do (Move to 1, then go to next ']'):
-  f1]]
+  f1]r
 
 Then (Assert that cursor is on the last ']'):
   AssertEqual 1, line('.')
@@ -26,42 +26,42 @@ Given (Nested brackets):
   123456789
 
 Do (Move to 1, then go to previous '['):
-  /1\<CR>[[
+  /1\<CR>[r
 
 Then (Assert that cursor is on the first '['):
   AssertEqual 1, line('.')
   AssertEqual 2, col('.')
 
 Do (Move to 1, then go to next ']'):
-  /1\<CR>]]
+  /1\<CR>]r
 
 Then (Assert that cursor is on the last ']'):
   AssertEqual 6, line('.')
   AssertEqual 1, col('.')
 
 Do (Move to 2, then go to previous '['):
-  /2\<CR>[[
+  /2\<CR>[r
 
 Then (Assert that cursor is on the second '['):
   AssertEqual 3, line('.')
   AssertEqual 5, col('.')
 
 Do (Move to 2, then go to next ']'):
-  /2\<CR>]]
+  /2\<CR>]r
 
 Then (Assert that cursor is on the first ']'):
   AssertEqual 3, line('.')
   AssertEqual 9, col('.')
 
 Do (Move to 3, then go to previous '['):
-  /3\<CR>[[
+  /3\<CR>[r
 
 Then (Assert that cursor is on the first '['):
   AssertEqual 1, line('.')
   AssertEqual 2, col('.')
 
 Do (Move to 3, then go to next ']'):
-  /3\<CR>]]
+  /3\<CR>]r
 
 Then (Assert that cursor is on the last ']'):
   AssertEqual 6, line('.')
@@ -72,37 +72,37 @@ Given (Brackets on one line):
   123456789012345678901
 
 Do (Move to 1, then go to previous '['):
-  f1[[
+  f1[r
 
 Then (Assert that cursor is on the second '['):
   AssertEqual 3, col('.')
 
 Do (Move to 1, then go to next ']'):
-  f1]]
+  f1]r
 
 Then (Assert that cursor is on the second ']'):
   AssertEqual 13, col('.')
 
 Do (Move to 2, then go to previous '['):
-  f2[[
+  f2[r
 
 Then (Assert that cursor is on the third '['):
   AssertEqual 7, col('.')
 
 Do (Move to 2, then go to next ']'):
-  f2]]
+  f2]r
 
 Then (Assert that cursor is on the first ]):
   AssertEqual 11, col('.')
 
 Do (Move to 3, then go to previous '['):
-  f3[[
+  f3[r
 
 Then (Assert that cursor is on the first '['):
   AssertEqual 1, col('.')
 
 Do (Move to 3, then go to next ']'):
-  f3]]
+  f3]r
 
 Then (Assert that cursor is on the last '['):
   AssertEqual 21, col('.')

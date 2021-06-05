@@ -9,7 +9,7 @@ Given (Brackets):
 Do (Move to 1, start visual mode, then go to previous '['):
   /1\<CR>
   v
-  [[
+  [r
 
 Then (Assert that cursor moved to '['):
   AssertEqual 2, line('.')
@@ -18,7 +18,7 @@ Then (Assert that cursor moved to '['):
 Do (Move to 1, start visual mode, then go to next ']'):
   /1\<CR>
   v
-  ]]
+  ]r
 
 Then (Assert that cursor moved to ']'):
   AssertEqual 4, line('.')

@@ -14,12 +14,12 @@ onoremap <silent><expr><Plug>GotoOpenBracket  gotobracket#cmd('call gotobracket#
 onoremap <silent><expr><Plug>GotoCloseBracket gotobracket#cmd('call gotobracket#find("]", v:count1, "o")')
 
 if !get(g:, 'gotobracket_nomap', 0)
-	nmap [[ <Plug>GotoOpenBracket
-	nmap ]] <Plug>GotoCloseBracket
-	xmap [[ <Plug>GotoOpenBracket
-	xmap ]] <Plug>GotoCloseBracket
-	omap [[ <Plug>GotoOpenBracket
-	omap ]] <Plug>GotoCloseBracket
+	nmap [r <Plug>GotoOpenBracket
+	nmap ]r <Plug>GotoCloseBracket
+	xmap [r <Plug>GotoOpenBracket
+	xmap ]r <Plug>GotoCloseBracket
+	omap [r <Plug>GotoOpenBracket
+	omap ]r <Plug>GotoCloseBracket
 endif
 
 let &cpoptions = s:cpo
