@@ -1,0 +1,33 @@
+Given (Python file with comment):
+  foo = [
+      # [
+      # 1
+      # ]
+  ]
+
+Execute (Set filetype to python):
+  setfiletype python
+
+Do (Move to 1, then go to next ']'):
+  j]]
+
+Then (Assert that cursor is on the last ']'):
+  AssertEqual 5, line('.')
+  AssertEqual 1, col('.')
+
+Given (Python file with string):
+  foo = [
+      '[',
+      # 1
+      ']',
+  ]
+
+Execute (Set filetype to python):
+  setfiletype python
+
+Do (Move to 1, then go to next ']'):
+  j]]
+
+Then (Assert that cursor is on the last ']'):
+  AssertEqual 5, line('.')
+  AssertEqual 1, col('.')
