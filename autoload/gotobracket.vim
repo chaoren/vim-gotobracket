@@ -11,7 +11,11 @@ function gotobracket#find(bracket, count, mode)
 	let l:count = a:count
 	let l:forward = a:bracket == ']'
 	let l:flags = l:forward ? 'W' : 'bW'
-	let l:Skip = {-> synIDattr(synID(line('.'), col('.'), 0), 'name') =~? 'string\|comment'}
+	if has('patch-7.4.2044')
+		let l:Skip = {-> synIDattr(synID(line('.'), col('.'), 0), 'name') =~? 'string\|comment'}
+	else
+		let l:Skip = 'synIDattr(synID(line("."), col("."), 0), "name") =~? "string\|comment"'
+	endif
 	while l:count > 0 && searchpair('\[', '', '\]', l:flags, l:Skip)
 		let l:count -= 1
 	endwhile
