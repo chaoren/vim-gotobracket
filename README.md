@@ -1,4 +1,4 @@
-# Go to unmatched '[' and ']' [![Build Status][1]][2]
+# Go to unmatched '[' and ']'
 
 The same as what `[{` and `]}` does for `{` and `}`, except for `[` and `]`.
 
@@ -23,6 +23,3 @@ xmap <silent><Leader>] <Plug>GotoCloseBracket
 omap <silent><Leader>[ <Plug>GotoOpenBracket
 omap <silent><Leader>] <Plug>GotoCloseBracket
 ```
-
-[1]: https://app.travis-ci.com/chaoren/vim-gotobracket.svg?branch=master
-[2]: https://app.travis-ci.com/chaoren/vim-gotobracket
